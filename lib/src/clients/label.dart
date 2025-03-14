@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:musicbrainz_api_client/src/clients/musicbrainz_http_client.dart';
 import 'package:logging/logging.dart';
+
 /// A client for interacting with the MusicBrainz API's Label-related endpoints.
 ///
 /// This class provides methods to retrieve and search for Labels (e.g., countries, cities)
@@ -12,10 +13,12 @@ class Label {
   final String _baseUrl = 'musicbrainz.org';
   final String _entity = 'label';
   final String _entities = 'labels';
+
   /// Creates a new instance of the [Label] client.
   ///
   /// - [httpClient]: The [MusicBrainzHttpClient] used to make HTTP requests.
   Label(MusicBrainzHttpClient httpClient) : _httpClient = httpClient;
+
   /// Retrieves detailed information about a specific Label by its MusicBrainz ID.
   ///
   /// - [id]: The MusicBrainz ID of the Label to retrieve.
@@ -37,6 +40,7 @@ class Label {
       throw Exception('Failed to load search results: ${response.statusCode}');
     }
   }
+
   /// Searches for Labels in the MusicBrainz database based on a query.
   ///
   /// - [query]: The search query to match against Label names, aliases, etc.

@@ -13,10 +13,12 @@ class Area {
   final String _baseUrl = 'musicbrainz.org';
   final String _entity = 'area';
   final String _entities = 'areas';
+
   /// Creates a new instance of the [Area] client.
   ///
   /// - [httpClient]: The [MusicBrainzHttpClient] used to make HTTP requests.
   Area(MusicBrainzHttpClient httpClient) : _httpClient = httpClient;
+
   /// Retrieves detailed information about a specific area by its MusicBrainz ID.
   ///
   /// - [id]: The MusicBrainz ID of the area to retrieve.
@@ -38,6 +40,7 @@ class Area {
       throw Exception('Failed to load search results: ${response.statusCode}');
     }
   }
+
   /// Searches for areas in the MusicBrainz database based on a query.
   ///
   /// - [query]: The search query to match against area names, aliases, etc.

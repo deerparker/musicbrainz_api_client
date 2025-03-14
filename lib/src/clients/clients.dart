@@ -10,7 +10,7 @@ export 'package:musicbrainz_api_client/src/clients/label.dart';
 export 'package:musicbrainz_api_client/src/clients/musicbrainz_http_client.dart';
 export 'package:musicbrainz_api_client/src/clients/place.dart';
 export 'package:musicbrainz_api_client/src/clients/recording.dart';
-export 'package:musicbrainz_api_client/src/clients/release-group.dart';
+export 'package:musicbrainz_api_client/src/clients/release_group.dart';
 export 'package:musicbrainz_api_client/src/clients/release.dart';
 export 'package:musicbrainz_api_client/src/clients/series.dart';
 export 'package:musicbrainz_api_client/src/clients/url.dart';

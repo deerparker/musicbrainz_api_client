@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:musicbrainz_api_client/src/clients/musicbrainz_http_client.dart';
 import 'package:logging/logging.dart';
+
 /// A client for interacting with the MusicBrainz API's Recording-related endpoints.
 ///
 /// This class provides methods to retrieve and search for Recordings (e.g., countries, cities)
@@ -12,10 +13,12 @@ class Recording {
   final String _baseUrl = 'musicbrainz.org';
   final String _entity = 'recording';
   final String _entities = 'recordings';
+
   /// Creates a new instance of the [Recording] client.
   ///
   /// - [httpClient]: The [MusicBrainzHttpClient] used to make HTTP requests.
   Recording(MusicBrainzHttpClient httpClient) : _httpClient = httpClient;
+
   /// Retrieves detailed information about a specific Recording by its MusicBrainz ID.
   ///
   /// - [id]: The MusicBrainz ID of the Recording to retrieve.
@@ -38,6 +41,7 @@ class Recording {
       throw Exception('Failed to load search results: ${response.statusCode}');
     }
   }
+
   /// Searches for Recordings in the MusicBrainz database based on a query.
   ///
   /// - [query]: The search query to match against Recording names, aliases, etc.

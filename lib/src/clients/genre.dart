@@ -12,10 +12,12 @@ class Genre {
   final String _baseUrl = 'musicbrainz.org';
   final String _entity = 'genre';
   final String _entities = 'genres';
+
   /// Creates a new instance of the [Genre] client.
   ///
   /// - [httpClient]: The [MusicBrainzHttpClient] used to make HTTP requests.
   Genre(MusicBrainzHttpClient httpClient) : _httpClient = httpClient;
+
   /// Retrieves information about a specific genre or a list of genres.
   ///
   /// - [id]: The MusicBrainz ID of the genre to retrieve. Use `all` to retrieve all genres. Limit auto set to 100 if not paginated and id is `all`.
@@ -27,7 +29,7 @@ class Genre {
   /// Returns a [Future] that completes with either a [Map<String, dynamic>] containing
   /// the genre(s) information or a [List<String>] if [textFormat] is `true`.
   ///
-  /// Throws an [Exception] if the request fails or if the response status code is not 200.  
+  /// Throws an [Exception] if the request fails or if the response status code is not 200.
   Future<dynamic> get(
     String id, {
     int limit = 25,
@@ -84,7 +86,8 @@ class Genre {
       throw Exception(stackTrace);
     }
   }
-    /// Retrieves all genres in the MusicBrainz database.
+
+  /// Retrieves all genres in the MusicBrainz database.
   ///
   /// - [textFormat]: Whether to return the results in text format (default is `false`).
   ///

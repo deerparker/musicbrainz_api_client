@@ -9,7 +9,7 @@ import 'package:musicbrainz_api_client/src/clients/label.dart';
 import 'package:musicbrainz_api_client/src/clients/musicbrainz_http_client.dart';
 import 'package:musicbrainz_api_client/src/clients/place.dart';
 import 'package:musicbrainz_api_client/src/clients/recording.dart';
-import 'package:musicbrainz_api_client/src/clients/release-group.dart';
+import 'package:musicbrainz_api_client/src/clients/release_group.dart';
 import 'package:musicbrainz_api_client/src/clients/release.dart';
 import 'package:musicbrainz_api_client/src/clients/series.dart';
 import 'package:musicbrainz_api_client/src/clients/url.dart';
@@ -30,7 +30,7 @@ class MusicBrainzApiClient {
   late final Series series;
   late final URL urls;
   late final Work works;
-  
+
   /// Creates a new instance of [MusicBrainzApiClient].
   ///
   /// This client provides access to various MusicBrainz API endpoints such as

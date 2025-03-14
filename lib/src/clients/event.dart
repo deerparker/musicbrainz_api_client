@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:musicbrainz_api_client/src/clients/musicbrainz_http_client.dart';
 import 'package:logging/logging.dart';
+
 /// A client for interacting with the MusicBrainz API's Event-related endpoints.
 ///
 /// This class provides methods to retrieve and search for Events (e.g., countries, cities)
@@ -12,10 +13,12 @@ class Event {
   final String _baseUrl = 'musicbrainz.org';
   final String _entity = 'event';
   final String _entities = 'events';
+
   /// Creates a new instance of the [Event] client.
   ///
   /// - [httpClient]: The [MusicBrainzHttpClient] used to make HTTP requests.
   Event(MusicBrainzHttpClient httpClient) : _httpClient = httpClient;
+
   /// Retrieves detailed information about a specific Event by its MusicBrainz ID.
   ///
   /// - [id]: The MusicBrainz ID of the Event to retrieve.
@@ -37,6 +40,7 @@ class Event {
       throw Exception('Failed to load search results: ${response.statusCode}');
     }
   }
+
   /// Searches for Events in the MusicBrainz database based on a query.
   ///
   /// - [query]: The search query to match against Event names, aliases, etc.

@@ -40,6 +40,7 @@ class MusicBrainzHttpClient extends http.BaseClient {
   late final Map<HttpRequestType, Function> _httpRequestHandlers;
   static final _logger = Logger('MusicBrainzApi.MusicBrainzHttpClient');
   final http.Client _httpClient;
+
   /// Indicates whether the client has been closed.
   bool _closed = false;
 
@@ -130,6 +131,7 @@ class MusicBrainzHttpClient extends http.BaseClient {
       'Rate Limit: $_rateLimit, Used: ${_rateLimit - _rateLimitRemaining}, Reset: $_rateLimitReset',
     );
   }
+
   /// Sends an HTTP request based on the provided [HttpRequestData].
   ///
   /// - [reqData]: The data required to make the request.
@@ -202,6 +204,7 @@ class MusicBrainzHttpClient extends http.BaseClient {
       throw Exception(stackTrace);
     }
   }
+
   /// Searches for an entity in the MusicBrainz API.
   ///
   /// - [baseUrl]: The base URL of the MusicBrainz API.
@@ -264,6 +267,7 @@ class MusicBrainzHttpClient extends http.BaseClient {
       throw Exception(stackTrace);
     }
   }
+
   /// Fetches all results for a paginated entity by making multiple requests.
   ///
   /// - [entity]: The type of entity to fetch (e.g., 'artist', 'release').

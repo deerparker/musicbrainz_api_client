@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:musicbrainz_api_client/src/clients/musicbrainz_http_client.dart';
 import 'package:logging/logging.dart';
+
 /// A client for interacting with the MusicBrainz API's Instrument-related endpoints.
 ///
 /// This class provides methods to retrieve and search for Instruments (e.g., countries, cities)
@@ -12,10 +13,12 @@ class Instrument {
   final String _baseUrl = 'musicbrainz.org';
   final String _entity = 'instrument';
   final String _entities = 'instruments';
+
   /// Creates a new instance of the [Instrument] client.
   ///
   /// - [httpClient]: The [MusicBrainzHttpClient] used to make HTTP requests.
   Instrument(MusicBrainzHttpClient httpClient) : _httpClient = httpClient;
+
   /// Retrieves detailed information about a specific Instrument by its MusicBrainz ID.
   ///
   /// - [id]: The MusicBrainz ID of the Instrument to retrieve.
@@ -37,6 +40,7 @@ class Instrument {
       throw Exception('Failed to load search results: ${response.statusCode}');
     }
   }
+
   /// Searches for Instruments in the MusicBrainz database based on a query.
   ///
   /// - [query]: The search query to match against Instrument names, aliases, etc.

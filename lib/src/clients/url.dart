@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:musicbrainz_api_client/src/clients/musicbrainz_http_client.dart';
 import 'package:logging/logging.dart';
+
 /// A client for interacting with the MusicBrainz API's URL-related endpoints.
 ///
 /// This class provides methods to retrieve and search for URLs (e.g., countries, cities)
@@ -12,10 +13,12 @@ class URL {
   final String _baseUrl = 'musicbrainz.org';
   final String _entity = 'url';
   final String _entities = 'urls';
+
   /// Creates a new instance of the [URL] client.
   ///
   /// - [httpClient]: The [MusicBrainzHttpClient] used to make HTTP requests.
   URL(MusicBrainzHttpClient httpClient) : _httpClient = httpClient;
+
   /// Retrieves detailed information about a specific URL by its MusicBrainz ID.
   ///
   /// - [id]: The MusicBrainz ID of the URL to retrieve.
@@ -35,6 +38,7 @@ class URL {
       throw Exception('Failed to load search results: ${response.statusCode}');
     }
   }
+
   /// Searches for URLs in the MusicBrainz database based on a query.
   ///
   /// - [query]: The search query to match against URL names, aliases, etc.

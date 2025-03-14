@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:musicbrainz_api_client/src/clients/musicbrainz_http_client.dart';
 import 'package:logging/logging.dart';
+
 /// A client for interacting with the MusicBrainz API's Place-related endpoints.
 ///
 /// This class provides methods to retrieve and search for Places (e.g., countries, cities)
@@ -12,10 +13,12 @@ class Place {
   final String _baseUrl = 'musicbrainz.org';
   final String _entity = 'place';
   final String _entities = 'places';
+
   /// Creates a new instance of the [Place] client.
   ///
   /// - [httpClient]: The [MusicBrainzHttpClient] used to make HTTP requests.
   Place(MusicBrainzHttpClient httpClient) : _httpClient = httpClient;
+
   /// Retrieves detailed information about a specific Place by its MusicBrainz ID.
   ///
   /// - [id]: The MusicBrainz ID of the Place to retrieve.
@@ -37,6 +40,7 @@ class Place {
       throw Exception('Failed to load search results: ${response.statusCode}');
     }
   }
+
   /// Searches for Places in the MusicBrainz database based on a query.
   ///
   /// - [query]: The search query to match against Place names, aliases, etc.

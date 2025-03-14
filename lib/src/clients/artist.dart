@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:musicbrainz_api_client/src/clients/musicbrainz_http_client.dart';
 import 'package:logging/logging.dart';
+
 /// A client for interacting with the MusicBrainz API's Artist-related endpoints.
 ///
 /// This class provides methods to retrieve and search for Artists (e.g., countries, cities)
@@ -12,10 +13,12 @@ class Artist {
   final String _baseUrl = 'musicbrainz.org';
   final String _entity = 'artist';
   final String _entities = 'artists';
+
   /// Creates a new instance of the [Artist] client.
   ///
   /// - [httpClient]: The [MusicBrainzHttpClient] used to make HTTP requests.
   Artist(MusicBrainzHttpClient httpClient) : _httpClient = httpClient;
+
   /// Retrieves detailed information about a specific Artist by its MusicBrainz ID.
   ///
   /// - [id]: The MusicBrainz ID of the Artist to retrieve.
@@ -38,6 +41,7 @@ class Artist {
       throw Exception('Failed to load search results: ${response.statusCode}');
     }
   }
+
   /// Searches for Artists in the MusicBrainz database based on a query.
   ///
   /// - [query]: The search query to match against Artist names, aliases, etc.

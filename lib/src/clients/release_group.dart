@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:musicbrainz_api_client/src/clients/musicbrainz_http_client.dart';
 import 'package:logging/logging.dart';
+
 /// A client for interacting with the MusicBrainz API's ReleaseGroup-related endpoints.
 ///
 /// This class provides methods to retrieve and search for ReleaseGroups (e.g., countries, cities)
@@ -12,10 +13,12 @@ class ReleaseGroup {
   final String _baseUrl = 'musicbrainz.org';
   final String _entity = 'release-group';
   final String _entities = 'release-groups';
+
   /// Creates a new instance of the [ReleaseGroup] client.
   ///
   /// - [httpClient]: The [MusicBrainzHttpClient] used to make HTTP requests.
   ReleaseGroup(MusicBrainzHttpClient httpClient) : _httpClient = httpClient;
+
   /// Retrieves detailed information about a specific ReleaseGroup by its MusicBrainz ID.
   ///
   /// - [id]: The MusicBrainz ID of the ReleaseGroup to retrieve.
@@ -38,6 +41,7 @@ class ReleaseGroup {
       throw Exception('Failed to load search results: ${response.statusCode}');
     }
   }
+
   /// Searches for ReleaseGroups in the MusicBrainz database based on a query.
   ///
   /// - [query]: The search query to match against ReleaseGroup names, aliases, etc.

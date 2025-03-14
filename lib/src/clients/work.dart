@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:musicbrainz_api_client/src/clients/musicbrainz_http_client.dart';
 import 'package:logging/logging.dart';
+
 /// A client for interacting with the MusicBrainz API's Work-related endpoints.
 ///
 /// This class provides methods to retrieve and search for Works (e.g., countries, cities)
@@ -12,10 +13,12 @@ class Work {
   final String _baseUrl = 'musicbrainz.org';
   final String _entity = 'work';
   final String _entities = 'works';
+
   /// Creates a new instance of the [Work] client.
   ///
   /// - [httpClient]: The [MusicBrainzHttpClient] used to make HTTP requests.
   Work(MusicBrainzHttpClient httpClient) : _httpClient = httpClient;
+
   /// Retrieves detailed information about a specific Work by its MusicBrainz ID.
   ///
   /// - [id]: The MusicBrainz ID of the Work to retrieve.
@@ -37,6 +40,7 @@ class Work {
       throw Exception('Failed to load search results: ${response.statusCode}');
     }
   }
+
   /// Searches for Works in the MusicBrainz database based on a query.
   ///
   /// - [query]: The search query to match against Work names, aliases, etc.

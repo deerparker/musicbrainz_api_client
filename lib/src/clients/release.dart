@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:musicbrainz_api_client/src/clients/musicbrainz_http_client.dart';
 import 'package:logging/logging.dart';
+
 /// A client for interacting with the MusicBrainz API's Release-related endpoints.
 ///
 /// This class provides methods to retrieve and search for Releases (e.g., countries, cities)
@@ -12,10 +13,12 @@ class Release {
   final String _baseUrl = 'musicbrainz.org';
   final String _entity = 'release';
   final String _entities = 'releases';
+
   /// Creates a new instance of the [Release] client.
   ///
   /// - [httpClient]: The [MusicBrainzHttpClient] used to make HTTP requests.
   Release(MusicBrainzHttpClient httpClient) : _httpClient = httpClient;
+
   /// Retrieves detailed information about a specific Release by its MusicBrainz ID.
   ///
   /// - [id]: The MusicBrainz ID of the Release to retrieve.
@@ -38,6 +41,7 @@ class Release {
       throw Exception('Failed to load search results: ${response.statusCode}');
     }
   }
+
   /// Searches for Releases in the MusicBrainz database based on a query.
   ///
   /// - [query]: The search query to match against Release names, aliases, etc.
