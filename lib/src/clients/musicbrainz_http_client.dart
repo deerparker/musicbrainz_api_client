@@ -282,7 +282,7 @@ class MusicBrainzHttpClient extends http.BaseClient {
     } catch (e, stackTrace) {
       _logger.warning('$e \n $stackTrace');
       if (!isSilent) throw Exception('$e \n $stackTrace');
-      return '';
+      return {'error': e.toString()};
     }
   }
 
@@ -354,7 +354,7 @@ class MusicBrainzHttpClient extends http.BaseClient {
     } catch (e, stackTrace) {
       _logger.warning('$e \n $stackTrace');
       if (!isSilent) throw Exception('$e \n $stackTrace');
-      return '';
+      return {'error': e.toString()};
     }
   }
 
@@ -409,7 +409,7 @@ class MusicBrainzHttpClient extends http.BaseClient {
     } catch (e, stackTrace) {
       _logger.warning(e);
       if (!isSilent) throw Exception('$e \n $stackTrace');
-      return '';
+      return {'error': e.toString()};
     }
     return result;
   }
