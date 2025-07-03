@@ -1,3 +1,8 @@
+## 0.1.9
+
+### Added
+- Better error handling
+
 ## 0.1.8
 
 ### Added
