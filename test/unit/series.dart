@@ -47,7 +47,15 @@ void main() {
       expect(response[entity], isA<List<dynamic>>());
       print('Search $entity: ${response[entity].length}');
     });
-
+    test('$entity.Search w/ params', () async {
+      final response = await client.series.search(
+        'life',
+        params: {'dismax': 'true'},
+      );
+      expect(response, isA<Map<String, dynamic>>());
+      expect(response[entity], isA<List<dynamic>>());
+      print('Search $entity: ${response[entity].length}');
+    });
     test('$entity.Browse', () async {
       var future = client.series.browse('', '');
       expect(future, throwsA(isA<UnimplementedError>()));

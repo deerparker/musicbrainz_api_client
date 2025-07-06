@@ -1,3 +1,8 @@
+## 0.1.10
+
+### Added
+- Added ability to add additional params to search queries.
+
 ## 0.1.9
 
 ### Added

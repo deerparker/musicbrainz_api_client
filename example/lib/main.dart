@@ -6,7 +6,7 @@ void main() async {
   final client = MusicBrainzApiClient(isSilent: false);
 
   final response = await client.areas.search('city', paginated: false);
-  print('Browse releases: ${response['areas'].length}');
+  print(response);
 
   exit(0);
 }

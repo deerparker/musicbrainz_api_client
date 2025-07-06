@@ -68,6 +68,7 @@ class Area {
   /// - [limit]: The maximum number of results to return (default is 25).
   /// - [offset]: The offset for paginated results (default is 0).
   /// - [paginated]: Whether to return paginated results (default is `true`).
+  /// - [params]: Additional URL query parameters (see https://musicbrainz.org/doc/MusicBrainz_API/Search)
   ///
   /// Returns a [Future] that completes with the search results.
   ///
@@ -77,6 +78,7 @@ class Area {
     int limit = 25,
     int offset = 0,
     bool paginated = true,
+    Map<String, String>? params,
   }) async {
     return await _httpClient.searchEntity(
       _baseUrl,
@@ -86,6 +88,7 @@ class Area {
       limit: limit,
       offset: offset,
       paginated: paginated,
+      params: params,
     );
   }
 

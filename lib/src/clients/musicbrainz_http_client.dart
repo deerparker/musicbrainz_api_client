@@ -226,6 +226,7 @@ class MusicBrainzHttpClient extends http.BaseClient {
   /// - [limit]: The maximum number of results to return (default is 25).
   /// - [offset]: The offset for paginated results (default is 0).
   /// - [paginated]: Whether to return paginated results (default is `true`).
+  /// - [params]: additional URL query parameters.
   ///
   /// Returns a [Future] that completes with the search results.
   ///
@@ -238,9 +239,11 @@ class MusicBrainzHttpClient extends http.BaseClient {
     int limit = 25,
     int offset = 0,
     bool paginated = true,
+    Map<String, String>? params,
   }) async {
     try {
       final uri = Uri.https(baseUrl, 'ws/2/$entity', {
+        'fmt': 'json',
         'query': query,
         if (!paginated)
           'limit': (100).toString()
@@ -248,6 +251,7 @@ class MusicBrainzHttpClient extends http.BaseClient {
           'limit': limit.toString(),
         'offset': offset.toString(),
       });
+      if (params != null) uri.replace(queryParameters: params);
 
       final response = await request(HttpRequestData(HttpRequestType.GET, uri));
 
@@ -313,6 +317,7 @@ class MusicBrainzHttpClient extends http.BaseClient {
   }) async {
     try {
       final uri = Uri.https(baseUrl, 'ws/2/$entity', {
+        'fmt': 'json',
         relatedEntity: relatedId,
         if (inc != null) 'inc': inc.join('+'),
         if (!paginated)

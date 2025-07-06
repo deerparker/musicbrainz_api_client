@@ -48,16 +48,26 @@ void main() {
       print('Search $entity: ${response['${entity}s'].length}');
     });
 
+    test('$entity.Search w/ params', () async {
+      final response = await client.areas.search(
+        'america',
+        params: {'dismax': 'true'},
+      );
+      expect(response, isA<Map<String, dynamic>>());
+      expect(response['${entity}s'], isA<List<dynamic>>());
+      print('Search $entity: ${response['${entity}s'].length}');
+    });
+
     test('$entity.Search unpaginate', () async {
       final response = await client.areas.search('city', paginated: false);
       expect(response, isA<Map<String, dynamic>>());
       expect(response['${entity}s'], isA<List<dynamic>>());
       expect(
-        response['${entity}-count'],
+        response['count'],
         equals(List.from(response['${entity}s']).length),
       );
       print(
-        'Browse $entity expected count: ${response['${entity}-count']} actual count: ${List.from(response['${entity}s']).length}',
+        'Browse $entity expected count: ${response['count']} actual count: ${List.from(response['${entity}s']).length}',
       );
     });
 

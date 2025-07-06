@@ -47,7 +47,15 @@ void main() {
       expect(response['${entity}s'], isA<List<dynamic>>());
       print('Search $entity: ${response['${entity}s'].length}');
     });
-
+    test('$entity.Search w/ params', () async {
+      final response = await client.labels.search(
+        'planet',
+        params: {'dismax': 'true'},
+      );
+      expect(response, isA<Map<String, dynamic>>());
+      expect(response['${entity}s'], isA<List<dynamic>>());
+      print('Search $entity: ${response['${entity}s'].length}');
+    });
     test('$entity.Browse positive no include', () async {
       final relatedEntity = 'area';
       final response = await client.labels.browse(
