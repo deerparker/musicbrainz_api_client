@@ -59,13 +59,14 @@ class MusicBrainzHttpClient extends http.BaseClient {
 
   static const Map<String, String> _defaultHeaders = {
     'user-agent':
-        'Dart:MusicBrainz_API_Client/0.0.1 (https://github.com/akashskypatel/musicbrainz_api_client)',
+        'Dart:MusicBrainz_API_Client/0.2.0 (https://github.com/akashskypatel/musicbrainz_api_client)',
   };
 
   /// Creates a new instance of [MusicBrainzHttpClient].
   ///
   /// Initializes the HTTP client and sets up request handlers for different HTTP methods.
-  MusicBrainzHttpClient({this.isSilent = true}) : _httpClient = http.Client() {
+  MusicBrainzHttpClient([http.Client? httpClient, this.isSilent = true])
+    : _httpClient = httpClient ?? http.Client() {
     _httpRequestHandlers = {
       HttpRequestType.GET: (HttpRequestData reqData) async {
         Map<String, String> newHeaders = {};

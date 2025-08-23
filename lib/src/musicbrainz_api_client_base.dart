@@ -1,5 +1,6 @@
 //file path: lib/src/musicbrainz_api_client_base.dart
 
+import 'package:http/http.dart' as http;
 import 'package:musicbrainz_api_client/src/clients/area.dart';
 import 'package:musicbrainz_api_client/src/clients/artist.dart';
 import 'package:musicbrainz_api_client/src/clients/event.dart';
@@ -45,8 +46,8 @@ class MusicBrainzApiClient {
   /// final artist = await client.artists.get('artist-id');
   /// client.close();
   /// ```
-  MusicBrainzApiClient({bool isSilent = true})
-    : _httpClient = MusicBrainzHttpClient(isSilent: isSilent) {
+  MusicBrainzApiClient({http.Client? httpClient, bool isSilent = true})
+    : _httpClient = MusicBrainzHttpClient(httpClient, isSilent) {
     genres = Genre(_httpClient);
     areas = Area(_httpClient);
     artists = Artist(_httpClient);
