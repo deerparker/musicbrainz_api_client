@@ -41,7 +41,7 @@ class MusicBrainzHttpClient extends http.BaseClient {
   static const _client = 'MusicBrainzApi.MusicBrainzHttpClient';
   late final Map<HttpRequestType, Function> _httpRequestHandlers;
   static final _logger = Logger(_client);
-  final http.Client _httpClient;
+  static http.Client _httpClient = http.Client();
   bool isSilent = true;
 
   /// Indicates whether the client has been closed.
@@ -65,8 +65,8 @@ class MusicBrainzHttpClient extends http.BaseClient {
   /// Creates a new instance of [MusicBrainzHttpClient].
   ///
   /// Initializes the HTTP client and sets up request handlers for different HTTP methods.
-  MusicBrainzHttpClient([http.Client? httpClient, this.isSilent = true])
-    : _httpClient = httpClient ?? http.Client() {
+  MusicBrainzHttpClient([http.Client? httpClient, this.isSilent = true]) {
+    _httpClient = httpClient ?? http.Client();
     _httpRequestHandlers = {
       HttpRequestType.GET: (HttpRequestData reqData) async {
         Map<String, String> newHeaders = {};
