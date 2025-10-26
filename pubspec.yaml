@@ -5,7 +5,6 @@ homepage: https://github.com/akashskypatel/musicbrainz_api_client
 
 environment:
   sdk: ^3.5.0
-  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
